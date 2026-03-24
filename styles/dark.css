@@ -1,46 +1,29 @@
 .page.theme_dark {
-  --accent-color: #FF0070;
-  --text-main-color: #F1B2CE;
-  --button-list-color: #FF0070;
-  --button-list-hover-color: rgba(255, 0, 112, 0.40);
-  --font-family: 'IBM Plex Mono', monospace;
-  --small-gap: 12px;
-  --mid-gap: 23px;
-  --text-line-height: line-height: 23.4px;
-  --subtitle-color: #FF0070;
-  --corner-color: #FF0070;
-  --rec-element-color: #FF0070;
-  --text-font-size: 18px;
-  --title-decor: #FF0070;
-  --background-color: #000028;
-  --heading-text-color: #000028;
-  --header-color: #db00ff;
-  --footer-color: #db00ff;
-  --unique-decoration-color: #F1B2CE;
-  --shadow-color: #ff0070;
-  background-image: url(../images/cover-image-dark.png);
+  --text-color: var(--color-pink-2, #f1b2ce);
+  --brand-color: var(--color-purple-1, #db00ff);
+  --secondary-color: var(--color-purple-2, #ff0070);
+  --secondary-color-o-40: var(--color-purple-2-o-40, #ff007040);
+  --accent-color: var(--color-purple-2, #ff0070);
+  --highlight-color: var(--color-black-1, #000028);
+
+  --page-background-color: var(--color-black-1, #000028);
+  --page-background-image: url("../images/cover-image-dark.png");
+
+  --rec-decor-visibility: visible;
 }
 
 @media (prefers-color-scheme: dark) {
-:root {
-  --accent-color: #FF0070;
-  --text-main-color: #F1B2CE;
-  --button-list-color: #FF0070;
-  --button-list-hover-color: rgba(255, 0, 112, 0.40);
-  --font-family: 'IBM Plex Mono', monospace;
-  --small-gap: 12px;
-  --mid-gap: 23px;
-  --text-line-height: line-height: 23.4px;
-  --subtitle-color: #FF0070;
-  --corner-color: #FF0070;
-  --rec-element-color: #FF0070;
-  --text-font-size: 18px;
-  --title-decor: #FF0070;
-  --background-color: #000028;
-  --heading-text-color: #000028;
-  --header-color: #db00ff;
-  --footer-color: #db00ff;
-  --unique-decoration-color: #F1B2CE;
-  --shadow-color: #ff0070;
-}
+  :root {
+    --text-color: var(--color-pink-2, #f1b2ce);
+    --brand-color: var(--color-purple-1, #db00ff);
+    --secondary-color: var(--color-purple-2, #ff0070);
+    --secondary-color-o-40: var(--color-purple-2-o-40, #ff007040);
+    --accent-color: var(--color-purple-2, #ff0070);
+    --highlight-color: var(--color-black-1, #000028);
+
+    --page-background-color: var(--color-black-1, #000028);
+    --page-background-image: url("../images/cover-image-dark.png");
+
+    --rec-decor-visibility: visible;
+  }
 }
