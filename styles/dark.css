@@ -8,12 +8,6 @@
   --page-background-color: #000028;
   --page-background-image: url("../images/cover-image-dark.png");
   --rec-decor-visibility: visible;
-
-  /* Дополнительные переменные, используемые в макете */
-  --link-color: #f1b2ce;
-  --link-shadow: #ff0070;
-  --button-hover-border: #ff0070;
-  --button-focus-outline: #ff0070;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -27,10 +21,5 @@
     --page-background-color: #000028;
     --page-background-image: url("../images/cover-image-dark.png");
     --rec-decor-visibility: visible;
-
-    --link-color: #f1b2ce;
-    --link-shadow: #ff0070;
-    --button-hover-border: #ff0070;
-    --button-focus-outline: #ff0070;
   }
 }
