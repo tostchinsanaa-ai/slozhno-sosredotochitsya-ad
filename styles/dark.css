@@ -1,27 +1,36 @@
 .page.theme_dark {
-  --accent-color: #FF0070;
-  --font-color: #000028;
-  --font-color-title: #FF0070;
-  --font-text-color: #F1B2CE;
-  --font-color-menu: #FF0070;
-  --font-color-menu-hover: #FF007066;
-  --title-color: #DB00FF;
-  --title-decor-color: #FF0070;
-  --background-color: #000028;
-  --background-image: url(../images/cover-image-dark.png);
+  --text-color: #f1b2ce;
+  --brand-color: #db00ff;
+  --secondary-color: #ff0070;
+  --secondary-color-o-40: #ff007040;
+  --accent-color: #ff0070;
+  --highlight-color: #000028;
+  --page-background-color: #000028;
+  --page-background-image: url("../images/cover-image-dark.png");
+  --rec-decor-visibility: visible;
+
+  /* Дополнительные переменные, используемые в макете */
+  --link-color: #f1b2ce;
+  --link-shadow: #ff0070;
+  --button-hover-border: #ff0070;
+  --button-focus-outline: #ff0070;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-  --accent-color: #FF0070;
-  --font-color: #000028;
-  --font-color-title: #FF0070;
-  --font-text-color: #F1B2CE;
-  --font-color-menu: #FF0070;
-  --font-color-menu-hover: #FF007066;
-  --title-color: #DB00FF;
-  --title-decor-color: #FF0070;
-  --background-color: #000028;
-  --background-image: url(../images/cover-image-dark.png);   
-    }
+    --text-color: #f1b2ce;
+    --brand-color: #db00ff;
+    --secondary-color: #ff0070;
+    --secondary-color-o-40: #ff007040;
+    --accent-color: #ff0070;
+    --highlight-color: #000028;
+    --page-background-color: #000028;
+    --page-background-image: url("../images/cover-image-dark.png");
+    --rec-decor-visibility: visible;
+
+    --link-color: #f1b2ce;
+    --link-shadow: #ff0070;
+    --button-hover-border: #ff0070;
+    --button-focus-outline: #ff0070;
   }
+}
