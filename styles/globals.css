@@ -1,5 +1,3 @@
-/* Глобальные стили для проекта, их можно дополнять и менять по желанию */
-
 *,
 *::before,
 *::after {
@@ -17,7 +15,13 @@ body {
   min-inline-size: 375px;
   font-family: var(--main-font), monospace;
   font-size: var(--main-font-size);
-  line-height: 1.3;
+  line-height: var(--line-height);
+  background-color: var(--page-background-color);
+  background-image: var(--page-background-image);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  color: var(--text-color);
 }
 
 h1,
