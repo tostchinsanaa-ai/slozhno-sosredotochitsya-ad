@@ -1,52 +1,53 @@
-(function initTheme() {
-  const theme = localStorage.getItem('theme');
-  if (theme) {
-    setTheme(theme);
+// Переключение тем
+function setTheme(theme) {
+  const root = document.documentElement;
+  root.classList.remove('theme_light', 'theme_dark');
+  if (theme === 'light') {
+    root.classList.add('theme_light');
+  } else if (theme === 'dark') {
+    root.classList.add('theme_dark');
   }
-})();
+  localStorage.setItem('theme', theme);
+  // Обновляем активную кнопку
+  document.querySelectorAll('.header__theme-menu-button').forEach(btn => {
+    btn.classList.remove('header__theme-menu-button_active');
+    btn.disabled = false;
+  });
+  let activeBtn;
+  if (theme === 'light') activeBtn = document.querySelector('.header__theme-menu-button_type_light');
+  else if (theme === 'dark') activeBtn = document.querySelector('.header__theme-menu-button_type_dark');
+  else activeBtn = document.querySelector('.header__theme-menu-button_type_auto');
+  if (activeBtn) {
+    activeBtn.classList.add('header__theme-menu-button_active');
+    activeBtn.disabled = true;
+  }
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-  const currentTheme = [...document.documentElement.classList]
-    .find((cn) => cn.startsWith('theme-'))
-    ?.replace('theme-', '');
-  const themeButtons = [
-    ...document.querySelectorAll('.header__theme-menu-button'),
-  ];
-  setActiveButton(themeButtons, currentTheme);
+// Восстановление сохранённой темы
+const saved = localStorage.getItem('theme');
+if (saved === 'light') setTheme('light');
+else if (saved === 'dark') setTheme('dark');
+else {
+  // auto: слушаем систему
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  setTheme(prefersDark ? 'dark' : 'light');
+  localStorage.setItem('theme', 'auto');
+}
 
-  themeButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const chosenTheme = [...button.classList]
-        .find((cn) => cn.includes('_type_'))
-        .split('_type_')[1];
-      setTheme(chosenTheme);
-      setActiveButton(themeButtons, chosenTheme);
-    });
+// Назначаем обработчики кнопкам
+document.querySelectorAll('.header__theme-menu-button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    let theme = 'auto';
+    if (btn.classList.contains('header__theme-menu-button_type_light')) theme = 'light';
+    else if (btn.classList.contains('header__theme-menu-button_type_dark')) theme = 'dark';
+    setTheme(theme);
+    localStorage.setItem('theme', theme);
   });
 });
 
-function setTheme(theme) {
-  document.documentElement.className = '';
-  document.documentElement.classList.add(`theme-${theme}`);
-  localStorage.setItem('theme', theme);
-}
-
-function setActiveButton(buttonsArray, theme) {
-  buttonsArray.forEach((button) => {
-    button.classList.remove('header__theme-menu-button_active');
-    button.removeAttribute('disabled');
-  });
-  const target = buttonsArray.find((button) =>
-    button.classList.contains(`header__theme-menu-button_type_${theme}`)
-  );
-  if (target) {
-    target.classList.add('header__theme-menu-button_active');
-    target.setAttribute('disabled', true);
-  } else {
-    const autoButton = document.querySelector(
-      '.header__theme-menu-button_type_auto'
-    );
-    autoButton.classList.add('header__theme-menu-button_active');
-    autoButton.setAttribute('disabled', true);
+// Следим за системными изменениями, если выбрано auto
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+  if (localStorage.getItem('theme') === 'auto') {
+    setTheme(e.matches ? 'dark' : 'light');
   }
-}
+});
